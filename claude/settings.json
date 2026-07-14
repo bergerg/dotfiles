@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "model": "sonnet",
+  "hooks": {},
+  "enabledPlugins": {
+    "claude-md-management@claude-plugins-official": true,
+    "github@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
+  },
+  "tui": "fullscreen",
+  "theme": "dark-ansi"
+}
