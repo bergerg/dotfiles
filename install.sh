@@ -2,8 +2,25 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
+echo "==> Container runtime"
+echo "Choose a container runtime:"
+echo "  1) Docker Desktop"
+echo "  2) Colima (lightweight, no GUI)"
+echo "  3) None - I'll install it myself"
+read -rp "Choice [1-3]: " runtime_choice
+case "$runtime_choice" in
+  1) runtime_pkg='cask "docker-desktop"' ;;
+  2) runtime_pkg=$'brew "colima"\nbrew "docker"' ;;
+  3) runtime_pkg='' ;;
+  *) echo "Invalid choice, skipping container runtime."; runtime_pkg='' ;;
+esac
+
 echo "==> Installing Homebrew packages"
-brew bundle --file=Brewfile
+cat Brewfile <(echo "$runtime_pkg") | brew bundle --file=-
+
+if [ "$runtime_choice" = "2" ]; then
+  colima start
+fi
 
 echo "==> Copying dotfiles"
 for f in home/.*; do
@@ -42,7 +59,5 @@ fi
 cat <<'EOF'
 
 Done. Notes:
-- Docker Desktop was installed via Brewfile. If your org blocks Docker Desktop,
-  use Colima instead: brew install colima docker && colima start
 - Any existing dotfiles that were in the way got backed up with a .bak suffix.
 EOF

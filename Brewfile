@@ -1,6 +1,5 @@
 # GUI apps
 cask "claude"
-cask "docker-desktop" # blocked by your org? use Colima instead: brew install colima docker && colima start
 cask "firefox"
 cask "obsidian"
 cask "raycast"
