@@ -32,6 +32,13 @@ if [ ! -d ~/.config/nvim ]; then
   rm -rf ~/.config/nvim/.git
 fi
 
+echo "==> Claude Code memory vault"
+if [ -d "/Applications/Obsidian.app" ]; then
+  ./scripts/init-memory-vault.sh
+else
+  echo "Obsidian not found, skipping memory vault setup"
+fi
+
 cat <<'EOF'
 
 Done. Notes:
