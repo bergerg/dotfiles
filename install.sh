@@ -36,6 +36,15 @@ mkdir -p ~/.config/ghostty
 [ -e ~/.config/ghostty/config ] && mv ~/.config/ghostty/config ~/.config/ghostty/config.bak
 cp "$(pwd)/config/ghostty/config" ~/.config/ghostty/config
 
+echo "==> Copying Yazi config"
+mkdir -p ~/.config/yazi
+[ -e ~/.config/yazi/yazi.toml ] && mv ~/.config/yazi/yazi.toml ~/.config/yazi/yazi.toml.bak
+[ -e ~/.config/yazi/theme.toml ] && mv ~/.config/yazi/theme.toml ~/.config/yazi/theme.toml.bak
+cp "$(pwd)/config/yazi/yazi.toml" ~/.config/yazi/yazi.toml
+cp "$(pwd)/config/yazi/theme.toml" ~/.config/yazi/theme.toml
+[ -e ~/.config/yazi/flavors ] && mv ~/.config/yazi/flavors ~/.config/yazi/flavors.bak
+cp -R "$(pwd)/config/yazi/flavors" ~/.config/yazi/flavors
+
 echo "==> Copying Claude Code config"
 mkdir -p ~/.claude
 [ -e ~/.claude/CLAUDE.md ] && mv ~/.claude/CLAUDE.md ~/.claude/CLAUDE.md.bak

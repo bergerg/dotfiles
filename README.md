@@ -11,10 +11,11 @@ cd ~/dotfiles
 ```
 
 Installs Homebrew packages/casks from `Brewfile`, copies dotfiles from `home/`
-into `$HOME`, copies `config/ghostty/config` and the Claude Code config, clones
-the LazyVim starter for neovim, and — if Obsidian got installed — sets up the
-Claude Code memory vault (`scripts/init-memory-vault.sh`). Existing files are
-backed up with a `.bak` suffix, not overwritten.
+into `$HOME`, copies `config/ghostty/config`, `config/yazi/` and the Claude
+Code config, clones the LazyVim starter for neovim, and — if Obsidian got
+installed — sets up the Claude Code memory vault
+(`scripts/init-memory-vault.sh`). Existing files are backed up with a `.bak`
+suffix, not overwritten.
 
 Files are copied, not symlinked — this repo is a one-off recovery script, not
 something to edit back into from a machine you don't want to auth with. It
@@ -39,6 +40,7 @@ below) — this just recreates the mechanism so a fresh vault is ready to go.
 - `Brewfile` — GUI apps (casks) and CLI tools (formulae)
 - `home/` — `.zshrc`, `.zprofile`, `.vimrc`
 - `config/ghostty/config` — Ghostty terminal theme
+- `config/yazi/` — Yazi file manager config, theme, and `neon-arcade` flavor
 - `claude/` — Claude Code `CLAUDE.md` and `settings.json`
 - `scripts/init-memory-vault.sh` — sets up the Claude Code memory vault in Obsidian
 

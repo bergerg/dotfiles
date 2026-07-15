@@ -1,0 +1,99 @@
+# neon-arcade — retro 80s neon / arcade cabinet style
+
+[mgr]
+cwd = { fg = "#00fff9" }
+
+find_keyword  = { fg = "#ffea00", bold = true, italic = true, underline = true }
+find_position = { fg = "#ff2079", bg = "reset", bold = true, italic = true }
+
+marker_copied   = { fg = "#39ff14", bg = "#39ff14" }
+marker_cut      = { fg = "#ff2079", bg = "#ff2079" }
+marker_marked   = { fg = "#00fff9", bg = "#00fff9" }
+marker_selected = { fg = "#ffea00", bg = "#ffea00" }
+
+count_copied   = { fg = "#0d0221", bg = "#39ff14" }
+count_cut      = { fg = "#0d0221", bg = "#ff2079" }
+count_selected = { fg = "#0d0221", bg = "#ffea00" }
+
+border_symbol = "▓"
+border_style  = { fg = "#b026ff" }
+
+[tabs]
+active   = { fg = "#0d0221", bg = "#b026ff", bold = true }
+inactive = { fg = "#b026ff", bg = "#1a0b2e" }
+
+[mode]
+normal_main = { fg = "#0d0221", bg = "#00fff9", bold = true }
+normal_alt  = { fg = "#00fff9", bg = "#1a0b2e" }
+
+select_main = { fg = "#0d0221", bg = "#39ff14", bold = true }
+select_alt  = { fg = "#39ff14", bg = "#1a0b2e" }
+
+unset_main = { fg = "#0d0221", bg = "#ff2079", bold = true }
+unset_alt  = { fg = "#ff2079", bg = "#1a0b2e" }
+
+[status]
+perm_sep   = { fg = "#b026ff" }
+perm_type  = { fg = "#00fff9" }
+perm_read  = { fg = "#ffea00" }
+perm_write = { fg = "#ff2079" }
+perm_exec  = { fg = "#39ff14" }
+
+progress_label  = { fg = "#ffffff", bold = true }
+progress_normal = { fg = "#39ff14", bg = "#1a0b2e" }
+progress_error  = { fg = "#ffea00", bg = "#ff2079" }
+
+[pick]
+border   = { fg = "#b026ff" }
+active   = { fg = "#ff2079", bold = true }
+inactive = {}
+
+[input]
+border   = { fg = "#b026ff" }
+title    = {}
+value    = {}
+selected = { reversed = true }
+
+[cmp]
+border = { fg = "#b026ff" }
+
+[tasks]
+border  = { fg = "#b026ff" }
+title   = {}
+hovered = { fg = "#ff2079", bold = true }
+
+[which]
+mask            = { bg = "#1a0b2e" }
+cand            = { fg = "#00fff9" }
+rest            = { fg = "#6f5f8f" }
+desc            = { fg = "#ff2079" }
+separator       = "  "
+separator_style = { fg = "#6f5f8f" }
+
+[help]
+on      = { fg = "#00fff9" }
+run     = { fg = "#ff2079" }
+hovered = { reversed = true, bold = true }
+footer  = { fg = "#1a0b2e", bg = "#00fff9" }
+
+[spot]
+border   = { fg = "#b026ff" }
+title    = { fg = "#b026ff" }
+tbl_col  = { fg = "#00fff9" }
+tbl_cell = { fg = "#ff2079", bg = "#1a0b2e" }
+
+[notify]
+title_info  = { fg = "#39ff14" }
+title_warn  = { fg = "#ffea00" }
+title_error = { fg = "#ff2079" }
+
+[filetype]
+rules = [
+	{ mime = "image/*", fg = "#00fff9" },
+	{ mime = "{audio,video}/*", fg = "#ffea00" },
+	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "#ff2079" },
+	{ mime = "application/{pdf,doc,rtf}", fg = "#39ff14" },
+	{ mime = "vfs/{absent,stale}", fg = "#6f5f8f" },
+	{ url = "*", fg = "#e0e0ff" },
+	{ url = "*/", fg = "#00fff9" },
+]
