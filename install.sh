@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 cd "$(dirname "$0")"
+REPO="$(pwd)"
+
+# Symlink REPO/$1 to $2, backing up any existing non-symlink target.
+link() {
+  local src="$REPO/$1" dest="$2"
+  [ -e "$dest" ] && [ ! -L "$dest" ] && mv "$dest" "$dest.bak"
+  ln -sfn "$src" "$dest"
+}
 
 echo "==> Container runtime"
 echo "Choose a container runtime:"
@@ -22,35 +30,28 @@ if [ "$runtime_choice" = "2" ]; then
   colima start
 fi
 
-echo "==> Copying dotfiles"
+echo "==> Linking dotfiles"
 for f in home/.*; do
   name=$(basename "$f")
   [ "$name" = "." ] || [ "$name" = ".." ] && continue
-  target="$HOME/$name"
-  [ -e "$target" ] && mv "$target" "$target.bak"
-  cp "$(pwd)/$f" "$target"
+  link "$f" "$HOME/$name"
 done
 
-echo "==> Copying Ghostty config"
+echo "==> Linking Ghostty config"
 mkdir -p ~/.config/ghostty
-[ -e ~/.config/ghostty/config ] && mv ~/.config/ghostty/config ~/.config/ghostty/config.bak
-cp "$(pwd)/config/ghostty/config" ~/.config/ghostty/config
+link config/ghostty/config ~/.config/ghostty/config
 
-echo "==> Copying Yazi config"
+echo "==> Linking Yazi config"
 mkdir -p ~/.config/yazi
-[ -e ~/.config/yazi/yazi.toml ] && mv ~/.config/yazi/yazi.toml ~/.config/yazi/yazi.toml.bak
-[ -e ~/.config/yazi/theme.toml ] && mv ~/.config/yazi/theme.toml ~/.config/yazi/theme.toml.bak
-cp "$(pwd)/config/yazi/yazi.toml" ~/.config/yazi/yazi.toml
-cp "$(pwd)/config/yazi/theme.toml" ~/.config/yazi/theme.toml
-[ -e ~/.config/yazi/flavors ] && mv ~/.config/yazi/flavors ~/.config/yazi/flavors.bak
-cp -R "$(pwd)/config/yazi/flavors" ~/.config/yazi/flavors
+link config/yazi/yazi.toml ~/.config/yazi/yazi.toml
+link config/yazi/theme.toml ~/.config/yazi/theme.toml
+link config/yazi/flavors ~/.config/yazi/flavors
 
-echo "==> Copying Claude Code config"
+echo "==> Linking Claude Code config"
 mkdir -p ~/.claude
-[ -e ~/.claude/CLAUDE.md ] && mv ~/.claude/CLAUDE.md ~/.claude/CLAUDE.md.bak
-[ -e ~/.claude/settings.json ] && mv ~/.claude/settings.json ~/.claude/settings.json.bak
-cp "$(pwd)/claude/CLAUDE.md" ~/.claude/CLAUDE.md
-cp "$(pwd)/claude/settings.json" ~/.claude/settings.json
+link claude/CLAUDE.md ~/.claude/CLAUDE.md
+link claude/settings.json ~/.claude/settings.json
+link claude/statusline-command.sh ~/.claude/statusline-command.sh
 
 echo "==> Neovim config (LazyVim starter)"
 if [ ! -d ~/.config/nvim ]; then
