@@ -4,6 +4,7 @@
     "defaultMode": "default"
   },
   "model": "opus",
+  "effortLevel": "low",
   "hooks": {},
   "statusLine": {
     "type": "command",
