@@ -1,15 +1,45 @@
 {
   "permissions": {
-    "defaultMode": "auto"
+    "deny": [],
+    "defaultMode": "default"
   },
-  "model": "sonnet",
+  "model": "opus",
   "hooks": {},
+  "statusLine": {
+    "type": "command",
+    "command": "bash /Users/bergerg/.claude/statusline-command.sh"
+  },
   "enabledPlugins": {
     "claude-md-management@claude-plugins-official": true,
+    "code-review@claude-plugins-official": false,
+    "frontend-design@claude-plugins-official": false,
     "github@claude-plugins-official": true,
+    "product-discovery@claude-plugins-official": false,
+    "rust-analyzer-lsp@claude-plugins-official": false,
     "skill-creator@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true
+    "superpowers@claude-plugins-official": false,
+    "typescript-lsp@claude-plugins-official": false,
+    "ponytail@ponytail": false
   },
+  "extraKnownMarketplaces": {
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    }
+  },
+  "promptSuggestionEnabled": false,
   "tui": "fullscreen",
-  "theme": "dark-ansi"
+  "theme": "dark-ansi",
+  "autoCompactEnabled": false,
+  "trustedDirectories": [],
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
+  "disableArtifact": true,
+  "disableBundledSkills": true,
+  "disableRemoteControl": true,
+  "disableClaudeAiConnectors": true
 }
