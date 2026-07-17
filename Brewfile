@@ -12,6 +12,7 @@ cask "font-fira-code-nerd-font"
 cask "font-jetbrains-mono"
 
 # CLI tools
+brew "codeburn"
 brew "fzf"
 brew "gh"
 brew "jq"
