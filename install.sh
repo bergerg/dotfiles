@@ -70,4 +70,8 @@ cat <<'EOF'
 
 Done. Notes:
 - Any existing dotfiles that were in the way got backed up with a .bak suffix.
+
+Recommended: browse the skills in Matt Pocock's skills repo
+(https://github.com/mattpocock/skills) and install the ones you want:
+  npx skills@latest add mattpocock/skills
 EOF
